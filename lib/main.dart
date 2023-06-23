@@ -20,34 +20,34 @@ class LiveasyOTPAuth extends GetView<Controller> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut<Controller>(() => Controller(), fenix: true);
-    return Obx(() => GetMaterialApp(
-          builder: (context, child) {
-            final mediaQueryData = MediaQuery.of(context);
-            final scale = mediaQueryData.textScaleFactor.clamp(1.0, 1.3);
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
-              child: child ?? const SizedBox(),
-            );
-          },
-          debugShowCheckedModeBanner: false,
-          theme: Themes.light,
-          darkTheme: Themes.dark,
-          themeMode: ThemeMode.light,
-          initialRoute: LiveasyRoutes.language,
-          getPages: [
-            GetPage(
-              name: LiveasyRoutes.language,
-              page: () => const Language(),
-            ),
-            GetPage(
-              name: LiveasyRoutes.verifyPhone,
-              page: () => const VerifyPhone(),
-            ),
-            GetPage(
-              name: LiveasyRoutes.profile,
-              page: () => const Profile(),
-            ),
-          ],
-        ));
+    return GetMaterialApp(
+      builder: (context, child) {
+        final mediaQueryData = MediaQuery.of(context);
+        final scale = mediaQueryData.textScaleFactor.clamp(1.0, 1.3);
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: scale),
+          child: child ?? const SizedBox(),
+        );
+      },
+      debugShowCheckedModeBanner: false,
+      theme: Themes.light,
+      darkTheme: Themes.dark,
+      themeMode: ThemeMode.light,
+      initialRoute: LiveasyRoutes.language,
+      getPages: [
+        GetPage(
+          name: LiveasyRoutes.language,
+          page: () => const Language(),
+        ),
+        GetPage(
+          name: LiveasyRoutes.verifyPhone,
+          page: () => const VerifyPhone(),
+        ),
+        GetPage(
+          name: LiveasyRoutes.profile,
+          page: () => const Profile(),
+        ),
+      ],
+    );
   }
 }
