@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "372689366935",
+    "project_id": "liveasy-otp-auth",
+    "storage_bucket": "liveasy-otp-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372689366935:android:d6c24985b47b94d32a9ed2",
+        "android_client_info": {
+          "package_name": "com.example.patrice_mulindi_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372689366935-u24sirb2he0eobr50c0579m2tedgjljb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.patrice_mulindi_task",
+            "certificate_hash": "74b02bd425f21e9827ee5a0309f2407944bc8e68"
+          }
+        },
+        {
+          "client_id": "372689366935-hvqibcng9spraqfu3pbkg1o2jkqsur9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFelspcetLn7d5PYLlwpr6s0eVY9UYDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372689366935-hvqibcng9spraqfu3pbkg1o2jkqsur9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
