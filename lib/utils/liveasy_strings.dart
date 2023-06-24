@@ -18,6 +18,7 @@ class LiveasyStrings {
   //Profile Screen Strings
   static String profileTitle = 'Please select your profile';
   static String shipper = 'Shipper';
-  static String shipperSubtitle =
+  static String transporter = 'Transporter';
+  static String profileSubtitle =
       'Lorem ipsum dolor sit amet, consectetur adipiscing';
 }

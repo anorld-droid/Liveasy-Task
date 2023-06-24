@@ -46,17 +46,16 @@ class VerifyPhone extends GetView<Controller> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-              width: 185,
               child: RichText(
                   text: TextSpan(
                       text: LiveasyStrings.verifySubtitle,
                       style: Get.textTheme.bodySmall,
                       children: [
-                    TextSpan(
-                      text: controller.mobileNumberController.text,
-                      style: Get.textTheme.bodySmall,
-                    ),
-                  ]))),
+                TextSpan(
+                  text: "+254${controller.mobileNumberController.text}",
+                  style: Get.textTheme.bodySmall,
+                ),
+              ]))),
         ),
         Container(
             width: Get.width * 0.90,
@@ -87,14 +86,16 @@ class VerifyPhone extends GetView<Controller> {
                     text: LiveasyStrings.receiveCodeSubtitle,
                     style: Get.textTheme.displayMedium,
                     recognizer: TapGestureRecognizer()
-                      ..onTap = controller.resendVerificationCode),
+                      ..onTap = () async {
+                        await controller.openVerificationScreen();
+                      }),
               ])),
         ),
         const SizedBox(
           height: 12,
         ),
         InkWell(
-          onTap: controller.openVerificationScreen,
+          onTap: controller.navigateToProfile,
           child: Container(
             alignment: Alignment.center,
             width: Get.width * 0.90,

@@ -33,11 +33,11 @@ class Themes {
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.w500),
       labelMedium: GoogleFonts.roboto(
-          fontSize: 12,
+          fontSize: 18,
           color: Colors.black,
           letterSpacing: .0,
           fontStyle: FontStyle.normal,
-          fontWeight: FontWeight.w500),
+          fontWeight: FontWeight.w400),
       labelSmall: GoogleFonts.montserrat(
           fontSize: 16,
           color: Colors.white,

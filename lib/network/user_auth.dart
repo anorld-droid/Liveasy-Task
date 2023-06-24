@@ -5,31 +5,19 @@ class UserAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> signInWithPhoneNumber(String phoneNumber,
-      {required Function(String? code) verificationCompleted}) async {
+      {required Function(PhoneAuthCredential) verificationCompleted,
+      required Function(String, int?) onCodeSent}) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
-      verificationCompleted: (PhoneAuthCredential credential) async {
-        verificationCompleted(credential.smsCode);
-        await _auth.signInWithCredential(credential);
-      },
+      verificationCompleted: verificationCompleted,
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
           // ignore: todo
           //TODO: Log to crashlytics
         }
       },
-      codeSent: (String verificationId, int? resendToken) async {
-        // Update the UI - wait for the user to enter the SMS code
-        String smsCode = onCodeSent();
-        if (smsCode.isNotEmpty) {
-          // Create a PhoneAuthCredential with the code
-          PhoneAuthCredential credential = PhoneAuthProvider.credential(
-              verificationId: verificationId, smsCode: smsCode);
-          // Sign the user in (or link) with the credential
-          await _auth.signInWithCredential(credential);
-        }
-      },
-      timeout: const Duration(seconds: 60),
+      codeSent: onCodeSent,
+      timeout: const Duration(seconds: 120),
       codeAutoRetrievalTimeout: (String verificationId) {
         // ignore: todo
         ///TODO('In the next phase add the counter time feature')
@@ -37,7 +25,17 @@ class UserAuth {
     );
   }
 
-  String onCodeSent({String verificationId = ''}) => verificationId;
+  Future<void> signUpUser(PhoneAuthCredential credential) async {
+    await _auth.signInWithCredential(credential);
+  }
+
+  Future<void> onCodeSent(String verificationId, String smsCode) async {
+    // Create a PhoneAuthCredential with the code
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: verificationId, smsCode: smsCode);
+    // Sign the user in (or link) with the credential
+    await _auth.signInWithCredential(credential);
+  }
 
   Future<void> signOut() async {
     return _auth.signOut();

@@ -67,6 +67,10 @@ class MobileNumber extends GetView<Controller> {
             child: InternationalPhoneNumberInput(
               onInputChanged: (PhoneNumber number) {
                 controller.formKey.currentState?.validate();
+                if (controller.isPhoneNumberValid.value) {
+                  controller.number.value = number;
+                  print(controller.number.value.phoneNumber);
+                }
               },
               onInputValidated: (bool value) {
                 controller.isPhoneNumberValid.value = value;
@@ -78,7 +82,7 @@ class MobileNumber extends GetView<Controller> {
               validator: (String? number) {
                 if (number == null) {
                   return LiveasyStrings.errorMessage;
-                } else if (number.length < 11) {
+                } else if (number.length < 9) {
                   return LiveasyStrings.errorMessage;
                 } else {
                   return null;
@@ -88,12 +92,12 @@ class MobileNumber extends GetView<Controller> {
               autoValidateMode: AutovalidateMode.disabled,
               selectorTextStyle: Get.textTheme.bodyMedium,
               textStyle: Get.textTheme.bodyMedium,
-              initialValue: controller.number,
+              initialValue: controller.number.value,
               maxLength: 11,
               scrollPadding: const EdgeInsets.all(0),
               textFieldController: controller.mobileNumberController,
               formatInput: true,
-              countries: ['IN'],
+              countries: ['KE'],
               hintText: LiveasyStrings.hintText,
               spaceBetweenSelectorAndTextField: 0,
               inputDecoration: InputDecoration(
@@ -103,19 +107,10 @@ class MobileNumber extends GetView<Controller> {
                       const UnderlineInputBorder(borderSide: BorderSide.none),
                   hintStyle: Get.textTheme.bodyMedium,
                   hintText: LiveasyStrings.hintText),
-              searchBoxDecoration: InputDecoration(
-                labelStyle: Get.textTheme.bodyMedium,
-                labelText: 'Search by country name or dial code',
-                filled: false,
-                fillColor: Get.theme.colorScheme.tertiary,
-                hoverColor: Get.theme.colorScheme.tertiary,
-                focusColor: Get.theme.colorScheme.tertiary,
-                floatingLabelStyle: Get.textTheme.bodyMedium,
-              ),
               keyboardType: const TextInputType.numberWithOptions(
                   signed: true, decimal: true),
               onSaved: (PhoneNumber number) {
-                controller.number = number;
+                controller.number.value = number;
               },
             ),
           ),
@@ -124,7 +119,9 @@ class MobileNumber extends GetView<Controller> {
           height: 12,
         ),
         InkWell(
-          onTap: controller.openVerificationScreen,
+          onTap: () async {
+            await controller.openVerificationScreen();
+          },
           child: Container(
             alignment: Alignment.center,
             width: Get.width * 0.90,
