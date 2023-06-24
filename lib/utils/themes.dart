@@ -69,21 +69,21 @@ class Themes {
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.w400),
     ),
-    colorScheme: ColorScheme(
+    colorScheme: const ColorScheme(
         background: Colors.white,
         brightness: Brightness.dark,
-        primary: const Color(0xFF2E3B62),
+        primary: Color(0xFF2E3B62),
         onPrimary: Colors.white,
-        secondary: const Color(0xFF93D2F3),
+        secondary: Color(0xFF93D2F3),
         onSecondary: Colors.white10,
         primaryContainer: Colors.transparent,
-        secondaryContainer: const Color.fromARGB(255, 5, 52, 49),
+        secondaryContainer: Color.fromARGB(255, 5, 52, 49),
         error: Colors.red,
         tertiary: Colors.black,
         onError: Colors.white,
         onBackground: Colors.black,
-        surface: const Color(0xFF6A6C7B),
-        onSurface: Colors.grey.shade300),
+        surface: Color(0xFF6A6C7B),
+        onSurface: Color(0xFF2F3037)),
   );
 
   static final dark = ThemeData.dark().copyWith(

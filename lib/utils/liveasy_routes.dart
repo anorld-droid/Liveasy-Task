@@ -2,6 +2,7 @@
 
 class LiveasyRoutes {
   static String language = '/feature/language';
+  static String mobileNumber = '/feature/mobileNumber';
   static String verifyPhone = '/feature/verifyPhone';
   static String profile = '/feature/profile';
 }

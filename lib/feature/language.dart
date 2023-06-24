@@ -82,7 +82,7 @@ class Language extends GetView<Controller> {
           height: 12,
         ),
         InkWell(
-          onTap: controller.openBottomSheet,
+          onTap: controller.navigateToMobileNumber,
           child: Container(
             alignment: Alignment.center,
             width: 300,

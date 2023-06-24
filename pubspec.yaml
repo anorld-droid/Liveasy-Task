@@ -15,6 +15,7 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^5.1.0
   firebase_core: ^2.14.0
+  intl_phone_number_input: ^0.7.3+1
 
 dev_dependencies:
   flutter_test:
@@ -30,7 +31,7 @@ flutter:
     - assets/images/language_icon.png
     - assets/images/language_bottom.png
     - assets/images/language_top.png
-  #   - images/a_dot_ham.jpeg
+    - assets/images/mobile_number_bottom_image.png
   # fonts:
   #   - family: Schyler
   #     fonts:

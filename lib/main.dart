@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:patrice_mulindi_task/controller.dart';
 import 'package:patrice_mulindi_task/feature/language.dart';
+import 'package:patrice_mulindi_task/feature/mobile_number.dart';
 import 'package:patrice_mulindi_task/feature/profile.dart';
 import 'package:patrice_mulindi_task/feature/verify_phone.dart';
 import 'package:patrice_mulindi_task/network/initialize_app.dart';
@@ -33,11 +34,15 @@ class LiveasyOTPAuth extends GetView<Controller> {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeMode.light,
-      initialRoute: LiveasyRoutes.language,
+      initialRoute: LiveasyRoutes.mobileNumber,
       getPages: [
         GetPage(
           name: LiveasyRoutes.language,
           page: () => const Language(),
+        ),
+        GetPage(
+          name: LiveasyRoutes.mobileNumber,
+          page: () => const MobileNumber(),
         ),
         GetPage(
           name: LiveasyRoutes.verifyPhone,
