@@ -68,6 +68,9 @@ class MobileNumber extends GetView<Controller> {
               onInputChanged: (PhoneNumber number) {
                 controller.formKey.currentState?.validate();
               },
+              onInputValidated: (bool value) {
+                controller.isPhoneNumberValid.value = value;
+              },
               selectorConfig: const SelectorConfig(
                 selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                 trailingSpace: false,

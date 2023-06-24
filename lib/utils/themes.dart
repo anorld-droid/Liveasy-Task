@@ -63,8 +63,8 @@ class Themes {
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.w400),
       displayMedium: GoogleFonts.roboto(
-          fontSize: 16,
-          color: Colors.black,
+          fontSize: 14,
+          color: const Color(0xFF061D28),
           letterSpacing: .0,
           fontStyle: FontStyle.normal,
           fontWeight: FontWeight.w400),

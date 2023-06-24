@@ -32,6 +32,8 @@ flutter:
     - assets/images/language_bottom.png
     - assets/images/language_top.png
     - assets/images/mobile_number_bottom_image.png
+    - assets/images/shipper.png
+    - assets/images/transporter.png
   # fonts:
   #   - family: Schyler
   #     fonts:

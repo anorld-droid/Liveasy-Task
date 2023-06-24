@@ -34,7 +34,7 @@ class LiveasyOTPAuth extends GetView<Controller> {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeMode.light,
-      initialRoute: LiveasyRoutes.mobileNumber,
+      initialRoute: LiveasyRoutes.verifyPhone,
       getPages: [
         GetPage(
           name: LiveasyRoutes.language,

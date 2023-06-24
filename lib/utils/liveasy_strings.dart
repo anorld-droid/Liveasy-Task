@@ -10,4 +10,14 @@ class LiveasyStrings {
   static String continueButton = 'CONTINUE';
   static String hintText = 'Mobile Number';
   static String errorMessage = 'Invalid phone number';
+  //Verify Screen Strings
+  static String verifyTitle = 'Verify Phone';
+  static String verifySubtitle = 'Code is sent to ';
+  static String receiveCodeTitle = 'Didn’t receive the code? ';
+  static String receiveCodeSubtitle = 'Request Again';
+  //Profile Screen Strings
+  static String profileTitle = 'Please select your profile';
+  static String shipper = 'Shipper';
+  static String shipperSubtitle =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing';
 }
