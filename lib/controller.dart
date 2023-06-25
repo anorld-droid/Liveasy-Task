@@ -26,8 +26,8 @@ class Controller extends GetxController {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController mobileNumberController = TextEditingController();
-  String initialCountry = 'KE';
-  final Rx<PhoneNumber> number = Rx(PhoneNumber(isoCode: 'KE'));
+  String initialCountry = 'IN';
+  final Rx<PhoneNumber> number = Rx(PhoneNumber(isoCode: 'IN'));
   final RxBool isPhoneNumberValid = false.obs;
 
   late final SystemUiOverlayStyle systemUiOverlayStyle;
@@ -65,7 +65,7 @@ class Controller extends GetxController {
       if (resendToken?.value != null) {
         Get.toNamed(LiveasyRoutes.verifyPhone);
         await _auth.signInWithPhoneNumber(
-          "+254${mobileNumberController.text}",
+          "+91${mobileNumberController.text}",
           forceResendingToken: resendToken!.value,
           verificationCompleted: (credential) async {
             _auth.signUpUser(credential);
@@ -93,7 +93,7 @@ class Controller extends GetxController {
     if (isPhoneNumberValid.isTrue) {
       Get.toNamed(LiveasyRoutes.verifyPhone);
       await _auth.signInWithPhoneNumber(
-        "+254${mobileNumberController.text}",
+        "+91${mobileNumberController.text}",
         verificationCompleted: (credential) async {
           // Sign the user in  with the auto-generated credential and navigate to profile
           _auth.signUpUser(credential);

@@ -22,7 +22,65 @@ class Profile extends GetView<Controller> {
               style: Get.textTheme.bodyLarge,
             ),
           ),
-          Container(
+          InkWell(
+            onTap: () {
+              controller.profile.value = ProfileModel.shipper;
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Get.theme.colorScheme.onBackground, width: 1)),
+                width: 330,
+                margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                padding: const EdgeInsets.all(4.0),
+                child: Row(
+                  children: [
+                    Obx(() => Radio<ProfileModel>(
+                        value: ProfileModel.shipper,
+                        groupValue: controller.profile.value,
+                        activeColor: Get.theme.colorScheme.primary,
+                        onChanged: (ProfileModel? val) {
+                          if (val != null) {
+                            controller.profile.value = val;
+                          }
+                        })),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: Image.asset(
+                        'assets/images/shipper.png',
+                        width: 40,
+                        height: 40,
+                      ),
+                    ),
+                    Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              LiveasyStrings.shipper,
+                              style: Get.textTheme.labelMedium,
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            Text(
+                              LiveasyStrings.profileSubtitle,
+                              style: Get.textTheme.bodySmall,
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                          ],
+                        ))
+                  ],
+                )),
+          ),
+          InkWell(
+            onTap: () {
+              controller.profile.value = ProfileModel.transporter;
+            },
+            child: Container(
               decoration: BoxDecoration(
                   border: Border.all(
                       color: Get.theme.colorScheme.onBackground, width: 1)),
@@ -32,7 +90,7 @@ class Profile extends GetView<Controller> {
               child: Row(
                 children: [
                   Obx(() => Radio<ProfileModel>(
-                      value: ProfileModel.shipper,
+                      value: ProfileModel.transporter,
                       groupValue: controller.profile.value,
                       activeColor: Get.theme.colorScheme.primary,
                       onChanged: (ProfileModel? val) {
@@ -43,7 +101,7 @@ class Profile extends GetView<Controller> {
                   Padding(
                     padding: const EdgeInsets.only(right: 12.0),
                     child: Image.asset(
-                      'assets/images/shipper.png',
+                      'assets/images/transporter.png',
                       width: 40,
                       height: 40,
                     ),
@@ -54,7 +112,7 @@ class Profile extends GetView<Controller> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            LiveasyStrings.shipper,
+                            LiveasyStrings.transporter,
                             style: Get.textTheme.labelMedium,
                           ),
                           const SizedBox(
@@ -70,55 +128,7 @@ class Profile extends GetView<Controller> {
                         ],
                       ))
                 ],
-              )),
-          Container(
-            decoration: BoxDecoration(
-                border: Border.all(
-                    color: Get.theme.colorScheme.onBackground, width: 1)),
-            width: 330,
-            margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              children: [
-                Obx(() => Radio<ProfileModel>(
-                    value: ProfileModel.transporter,
-                    groupValue: controller.profile.value,
-                    activeColor: Get.theme.colorScheme.primary,
-                    onChanged: (ProfileModel? val) {
-                      if (val != null) {
-                        controller.profile.value = val;
-                      }
-                    })),
-                Padding(
-                  padding: const EdgeInsets.only(right: 12.0),
-                  child: Image.asset(
-                    'assets/images/transporter.png',
-                    width: 40,
-                    height: 40,
-                  ),
-                ),
-                Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          LiveasyStrings.transporter,
-                          style: Get.textTheme.labelMedium,
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        Text(
-                          LiveasyStrings.profileSubtitle,
-                          style: Get.textTheme.bodySmall,
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                      ],
-                    ))
-              ],
+              ),
             ),
           ),
           const SizedBox(

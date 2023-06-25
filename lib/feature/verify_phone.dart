@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:patrice_mulindi_task/controller.dart';
 import 'package:patrice_mulindi_task/utils/liveasy_strings.dart';
@@ -52,7 +51,7 @@ class VerifyPhone extends GetView<Controller> {
                       style: Get.textTheme.bodySmall,
                       children: [
                 TextSpan(
-                  text: "+254${controller.mobileNumberController.text}",
+                  text: "+91${controller.mobileNumberController.text}",
                   style: Get.textTheme.bodySmall,
                 ),
               ]))),

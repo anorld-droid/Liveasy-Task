@@ -54,64 +54,65 @@ class MobileNumber extends GetView<Controller> {
             ),
           ),
         ),
-        Form(
-          key: controller.formKey,
-          child: Container(
-            width: Get.width * 0.90,
-            decoration: BoxDecoration(
-                border: Border.all(
-                    color: Get.theme.colorScheme.onBackground, width: 1)),
-            margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
-            child: InternationalPhoneNumberInput(
-              onInputChanged: (PhoneNumber number) {
-                controller.formKey.currentState?.validate();
-                if (controller.isPhoneNumberValid.value) {
+        Container(
+          width: Get.width * 0.90,
+          decoration: BoxDecoration(
+              border: Border.all(
+                  color: Get.theme.colorScheme.onBackground, width: 1)),
+          margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+          child: Obx(
+            () => Form(
+              key: controller.formKey,
+              child: InternationalPhoneNumberInput(
+                onInputChanged: (PhoneNumber number) {
+                  controller.formKey.currentState?.validate();
+                  if (controller.isPhoneNumberValid.value) {
+                    controller.number.value = number;
+                  }
+                  print('Changed');
+                },
+                onInputValidated: (bool value) {
+                  controller.isPhoneNumberValid.value = value;
+                },
+                selectorConfig: const SelectorConfig(
+                  selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  trailingSpace: false,
+                ),
+                validator: (String? number) {
+                  if (number == null) {
+                    return LiveasyStrings.errorMessage;
+                  } else if (number.length < 11) {
+                    return LiveasyStrings.errorMessage;
+                  } else {
+                    return null;
+                  }
+                },
+                ignoreBlank: false,
+                autoValidateMode: AutovalidateMode.disabled,
+                selectorTextStyle: Get.textTheme.bodyMedium,
+                textStyle: Get.textTheme.bodyMedium,
+                initialValue: controller.number.value,
+                maxLength: 12,
+                scrollPadding: const EdgeInsets.all(0),
+                textFieldController: controller.mobileNumberController,
+                formatInput: true,
+                countries: const ['IN'],
+                hintText: LiveasyStrings.hintText,
+                spaceBetweenSelectorAndTextField: 0,
+                inputDecoration: InputDecoration(
+                    prefixIcon: Icon(Icons.remove,
+                        color: Get.theme.colorScheme.onSurface, size: 12),
+                    border:
+                        const UnderlineInputBorder(borderSide: BorderSide.none),
+                    hintStyle: Get.textTheme.bodyMedium,
+                    hintText: LiveasyStrings.hintText),
+                keyboardType: const TextInputType.numberWithOptions(
+                    signed: true, decimal: true),
+                onSaved: (PhoneNumber number) {
                   controller.number.value = number;
-                  print(controller.number.value.phoneNumber);
-                }
-              },
-              onInputValidated: (bool value) {
-                controller.isPhoneNumberValid.value = value;
-              },
-              selectorConfig: const SelectorConfig(
-                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                trailingSpace: false,
+                },
               ),
-              validator: (String? number) {
-                if (number == null) {
-                  return LiveasyStrings.errorMessage;
-                } else if (number.length < 9) {
-                  return LiveasyStrings.errorMessage;
-                } else {
-                  return null;
-                }
-              },
-              ignoreBlank: false,
-              autoValidateMode: AutovalidateMode.disabled,
-              selectorTextStyle: Get.textTheme.bodyMedium,
-              textStyle: Get.textTheme.bodyMedium,
-              initialValue: controller.number.value,
-              maxLength: 11,
-              scrollPadding: const EdgeInsets.all(0),
-              textFieldController: controller.mobileNumberController,
-              formatInput: true,
-              countries: ['KE'],
-              hintText: LiveasyStrings.hintText,
-              spaceBetweenSelectorAndTextField: 0,
-              inputDecoration: InputDecoration(
-                  prefixIcon: Icon(Icons.remove,
-                      color: Get.theme.colorScheme.onSurface, size: 12),
-                  border:
-                      const UnderlineInputBorder(borderSide: BorderSide.none),
-                  hintStyle: Get.textTheme.bodyMedium,
-                  hintText: LiveasyStrings.hintText),
-              keyboardType: const TextInputType.numberWithOptions(
-                  signed: true, decimal: true),
-              onSaved: (PhoneNumber number) {
-                controller.number.value = number;
-              },
             ),
           ),
         ),
