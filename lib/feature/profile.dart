@@ -10,6 +10,7 @@ class Profile extends GetView<Controller> {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<Controller>();
     return Material(
       color: Get.theme.colorScheme.background,
       child: Column(
