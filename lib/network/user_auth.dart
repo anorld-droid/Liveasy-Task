@@ -5,7 +5,8 @@ class UserAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> signInWithPhoneNumber(String phoneNumber,
-      {required Function(PhoneAuthCredential) verificationCompleted,
+      {int? forceResendingToken,
+      required Function(PhoneAuthCredential) verificationCompleted,
       required Function(String, int?) onCodeSent}) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
@@ -18,6 +19,7 @@ class UserAuth {
       },
       codeSent: onCodeSent,
       timeout: const Duration(seconds: 120),
+      forceResendingToken: forceResendingToken,
       codeAutoRetrievalTimeout: (String verificationId) {
         // ignore: todo
         ///TODO('In the next phase add the counter time feature')

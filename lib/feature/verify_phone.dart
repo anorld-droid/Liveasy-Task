@@ -87,7 +87,7 @@ class VerifyPhone extends GetView<Controller> {
                     style: Get.textTheme.displayMedium,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        await controller.openVerificationScreen();
+                        await controller.resendCode();
                       }),
               ])),
         ),

@@ -34,6 +34,9 @@ class Controller extends GetxController {
 
   final Rx<ProfileModel> profile = Rx(ProfileModel.none);
 
+  final Rx<String> verificationId = Rx('');
+  Rx<int?>? resendToken;
+
   @override
   void onInit() async {
     super.onInit();
@@ -57,27 +60,50 @@ class Controller extends GetxController {
     Get.toNamed(LiveasyRoutes.mobileNumber);
   }
 
+  Future<void> resendCode() async {
+    if (resendToken != null) {
+      if (resendToken?.value != null) {
+        Get.toNamed(LiveasyRoutes.verifyPhone);
+        await _auth.signInWithPhoneNumber(
+          "+254${mobileNumberController.text}",
+          forceResendingToken: resendToken!.value,
+          verificationCompleted: (credential) async {
+            _auth.signUpUser(credential);
+            if (_auth.isUserSignedIn()) {
+              navigateToProfile();
+            }
+          },
+          onCodeSent: (String verifiId, int? token) {
+            verificationId.value = verifiId;
+            resendToken?.value = token;
+          },
+        );
+        if (_auth.isUserSignedIn()) {
+          Get.toNamed(LiveasyRoutes.profile);
+        }
+      }
+    } else {
+      await openVerificationScreen();
+    }
+  }
+
+  //If phone supports automatic SMS code resolution.
+  // Sign up the user and navigate to profile, else wait for the code input.
   Future<void> openVerificationScreen() async {
     if (isPhoneNumberValid.isTrue) {
       Get.toNamed(LiveasyRoutes.verifyPhone);
       await _auth.signInWithPhoneNumber(
         "+254${mobileNumberController.text}",
         verificationCompleted: (credential) async {
+          // Sign the user in  with the auto-generated credential and navigate to profile
           _auth.signUpUser(credential);
           if (_auth.isUserSignedIn()) {
             navigateToProfile();
           }
         },
-        onCodeSent: (String verificationId, int? resendToken) async {
-          String code = otpFieldOne.text +
-              otpFieldTwo.text +
-              otpFieldThree.text +
-              otpFieldFour.text +
-              otpFieldFive.text +
-              otpFieldSix.text;
-          if (code.isNotEmpty) {
-            _auth.onCodeSent(verificationId, code);
-          }
+        onCodeSent: (String verifiId, int? token) {
+          verificationId.value = verifiId;
+          resendToken?.value = token;
         },
       );
       if (_auth.isUserSignedIn()) {
@@ -89,6 +115,15 @@ class Controller extends GetxController {
   }
 
   void navigateToProfile() {
+    String code = otpFieldOne.text +
+        otpFieldTwo.text +
+        otpFieldThree.text +
+        otpFieldFour.text +
+        otpFieldFive.text +
+        otpFieldSix.text;
+    if (code.isNotEmpty && verificationId.value.isNotEmpty) {
+      _auth.onCodeSent(verificationId.value, code);
+    }
     if (_auth.isUserSignedIn()) {
       Get.toNamed(LiveasyRoutes.profile);
     }
