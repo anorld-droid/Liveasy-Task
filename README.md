@@ -1,6 +1,4 @@
 <!-- Create by Patrice Mulindi email(mulindipatrice00@gmail.com) on 23.06.2023. -->
-<a name="readme-top"></a>
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -61,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]()
+[![Product Name Screen Shot][product-screenshot]](https://firebasestorage.googleapis.com/v0/b/liveasy-otp-auth.appspot.com/o/app-release.apk?alt=media&token=1839188a-01d4-405a-89c4-6ff0fddd237b)
 
 This project aims to develop a Flutter Android application that utilizes Firebase OTP for seamless phone number verification. The application provides a user-friendly interface for users to enter their phone numbers and receive a one-time password (OTP) sent via Firebase. 
 
@@ -69,8 +67,6 @@ By integrating with Firebase Authentication, the app ensures secure and reliable
 
 
 _Note: This project is submitted as part of a hiring process in Liveasy_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -81,10 +77,6 @@ The project leverages the  flexibility of Flutter/Dart to create a firebase OTP-
 * [![Flutter][Flutter]][Flutter-url]
 * [![Dart][Dart]][Dart-url]
 * [![GetX][GetX]][GetX-url]
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
@@ -130,9 +122,6 @@ _To set up and run the Flutter project on your machine, please follow these step
    ```
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -148,7 +137,6 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -157,7 +145,6 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the Apache License 2.0. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -166,7 +153,7 @@ Distributed under the Apache License 2.0. See `LICENSE` for more information.
 
 Patrice Mulindi - [@anorld_droid](https://twitter.com/anorld_droid) - mulindipatrice00@gmail.com
 
-Project Link: [Download App]()
+Project Link: [Download App](https://firebasestorage.googleapis.com/v0/b/liveasy-otp-auth.appspot.com/o/app-release.apk?alt=media&token=1839188a-01d4-405a-89c4-6ff0fddd237b)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,8 +167,6 @@ Helpful and would like to give credit to:
 * [Choose an Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
 * [Mockup Maker Editor](https://www.renderforest.com/mockup-maker/new?packId=121&mockupId=1454)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
