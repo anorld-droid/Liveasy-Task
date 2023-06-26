@@ -155,7 +155,6 @@ Patrice Mulindi - [@anorld_droid](https://twitter.com/anorld_droid) - mulindipat
 
 Project Link: [Download App](https://firebasestorage.googleapis.com/v0/b/liveasy-otp-auth.appspot.com/o/app-release.apk?alt=media&token=1839188a-01d4-405a-89c4-6ff0fddd237b)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
